@@ -4,9 +4,6 @@ import numpy as np
 import tensorflow as tf
 import cv2
 import matplotlib.pyplot as plt
-
-
-
 import zipfile
 import os
 
@@ -75,8 +72,19 @@ def predict_gender(image):
 
 
 # Define the Streamlit UI
-st.title('Gender Classification App of Geetha')
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png","webp"])
+st.title('Gender Classification App of Venkatesh')
+
+# Add text instructions
+st.write("Please upload a photo similar to a passport-size photo for better classification results.")
+st.write("Here are some examples of suitable photos:")
+
+# Display example photos
+example_photo_paths = ["example1.jpg", "example2.jpg", "example3.jpg"]  # Paths to your example photos
+for example_photo_path in example_photo_paths:
+    example_image = Image.open(example_photo_path)
+    st.image(example_image, caption='Example Photo', use_column_width=True)
+
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "webp"])
 
 if uploaded_file is not None:
     # Display the uploaded image
