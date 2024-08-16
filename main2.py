@@ -118,3 +118,21 @@ if uploaded_file is not None:
     if st.button('Predict'):
         prediction = predict_gender(image)
         st.title('Prediction: {}'.format(prediction))
+
+
+import streamlit as st
+
+image_path = "D:\\Venkatesh\\Projects\\CNN Projects\\Gender classification already deployed sditing\\Gender-classification\\example1.jpg"
+print(f"Using image path: {image_path}")
+
+page_bg_img = '''
+<style>
+  body {
+    background-image: url("%s");
+    background-size: cover;
+  }
+</style>
+''' % image_path
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
